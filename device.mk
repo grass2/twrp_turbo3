@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl-qti.recovery
 
 # SHIPPING API
-PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 32
 
 # VNDK API
 PRODUCT_TARGET_VNDK_VERSION := 34
@@ -36,4 +36,24 @@ PRODUCT_TARGET_VNDK_VERSION := 34
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+PRODUCT_SOONG_NAMESPACES += \
+    $(DEVICE_PATH) \
+    hardware/qcom-caf/bootctrl
+
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
+
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hardware.keymaster@4.1
+    
+# Keymint
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint \
+    android.hardware.security.secureclock \
+    android.hardware.security.sharedsecret \
+    android.system.keystore2-V1-ndk
+    
+# Keystore2
+PRODUCT_PACKAGES += \
+    android.system.keystore2
