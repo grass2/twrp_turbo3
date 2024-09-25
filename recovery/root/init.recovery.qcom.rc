@@ -52,7 +52,7 @@ on fs
 
 on init
     start boot-hal-1-2
-    start vendor.qseecomd
+    
     start vendor.keymint-strongbox
     start vendor.keymint-qti
     start vendor.weaver_nxp
@@ -60,7 +60,7 @@ on init
 
 on boot
     setprop sys.usb.config adb
-    start health-hal-2-1
+    
 
 on property:twrp.modules.loaded=true
     # Mount firmware
@@ -71,8 +71,11 @@ on property:twrp.modules.loaded=true
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
+    start health-hal-2-1
     start touch_report
     start vibratorfeature-hal-service
+    stop vendor.qseecomd
+    start vendor.qseecomd
     umount /firmware
 
 on property:vendor.sys.listeners.registered=true
