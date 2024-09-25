@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 PRODUCT_PACKAGES += \
-    bootctrl.xiaomi_sm8550.recovery \
+    bootctrl.xiaomi_sm8635.recovery \
     android.hardware.boot@1.2-impl-qti.recovery
 
 # SHIPPING API
@@ -36,24 +36,4 @@ PRODUCT_TARGET_VNDK_VERSION := 34
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH) \
-    hardware/qcom-caf/bootctrl
-
-PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
-
-TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.keymaster@4.1
-    
-# Keymint
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint \
-    android.hardware.security.secureclock \
-    android.hardware.security.sharedsecret \
-    android.system.keystore2-V1-ndk
-    
-# Keystore2
-PRODUCT_PACKAGES += \
-    android.system.keystore2
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
