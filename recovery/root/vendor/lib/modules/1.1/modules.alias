@@ -562,6 +562,9 @@ alias of:N*T*Cqcom,spmi-pmic-arb-debug spmi_pmic_arb_debug
 alias of:N*T*Cqcom,spmi-pmic-arb-debugC* spmi_pmic_arb_debug
 alias rtnl-link-minet minet
 alias i2c:aw882xx_smartpa aw882xx_dlkm
+alias of:N*T*Cfoursemi,fs16xx aw882xx_dlkm
+alias of:N*T*Cfoursemi,fs16xxC* aw882xx_dlkm
+alias i2c:fs16xx aw882xx_dlkm
 alias of:N*T*Cqcom,lpass-cdc lpass_cdc_dlkm
 alias of:N*T*Cqcom,lpass-cdcC* lpass_cdc_dlkm
 alias of:N*T*Cqcom,lpass-cdc-clk-rsc-mngr lpass_cdc_dlkm
