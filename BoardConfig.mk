@@ -60,7 +60,6 @@ TARGET_OTA_ASSERT_DEVICE := peridot
 
 # Partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
-    mi_ext \
     odm \
     product \
     system \
