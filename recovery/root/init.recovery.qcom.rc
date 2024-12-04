@@ -26,6 +26,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.qcom_decrypt.rc
+
 on init
     start boot-hal-1-2
     write /sys/class/backlight/panel0-backlight/brightness 200
