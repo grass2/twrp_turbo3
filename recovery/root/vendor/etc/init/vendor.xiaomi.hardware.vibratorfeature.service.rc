@@ -1,12 +1,7 @@
-on late-fs
-    # aw86224_haptic
-    chown system system /sys/bus/i2c/drivers/awinic_haptic/2-005a/f0_save
-    chown system system /sys/bus/i2c/drivers/awinic_haptic/2-005a/osc_save
-    chown system system /sys/bus/i2c/drivers/awinic_haptic/2-005a/custom_wave
-    chmod 0666  /sys/bus/i2c/drivers/awinic_haptic/2-005a/custom_wave
-
-    # cal-file directory
-    mkdir /mnt/vendor/persist/haptics 0755 system system
+on fs
+    # qcom-haptics
+    chmod 0666 /sys/class/qcom-haptics/lra_calibration
+    chmod 0666 /sys/class/qcom-haptics/lra_impedance
 
 service vibratorfeature-hal-service /vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
     class hal
@@ -16,6 +11,3 @@ service vibratorfeature-hal-service /vendor/bin/hw/vendor.xiaomi.hardware.vibrat
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
     disabled
     seclabel u:r:recovery:s0
-
-on boot
-    setprop vendor.haptic.calibrate.done 1
